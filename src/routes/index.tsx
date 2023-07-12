@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RootStackParamList } from "./types";
-import MainScreen from "../screens/Main";
-import NewFinancialRecord from "../screens/NewFinancialRecord";
+import MainScreen from "../modules/financial/screens/Main";
+import NewFinancialRecord from "../modules/financial/screens/NewFinancialRecord";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 

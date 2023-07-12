@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components/native";
 import { TitleProps } from "./types";
-import Text from "../Text";
-import ButtonIcon from "../ButtonIcon";
+import Text from "../../../../components/Text";
+import ButtonIcon from "../../../../components/ButtonIcon";
 import { FinancialType } from "../../entities/FinancialRecord";
 
 export const Container = styled.View`

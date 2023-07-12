@@ -6,7 +6,7 @@ import {
   ListContent,
 } from "./styles";
 import { FinancialRecord, FinancialType } from "../../entities/FinancialRecord";
-import Title from "../../components/Title";
+import Title from "../../../../components/Title";
 import ScreenContent from "../../components/ScreenContent";
 import FinancialItem from "../../components/FinancialItem";
 import SeparatorItemList from "../../components/SeparatorItemList";

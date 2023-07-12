@@ -1,9 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { Container } from "./styles";
-import Text from "../../components/Text";
-import Input from "../../components/Input";
-import Select from "../../components/Select";
+import Text from "../../../../components/Text";
+import Input from "../../../../components/Input";
+import Select from "../../../../components/Select";
 
 export default function NewFinancialRecordScreen() {
   const options = [

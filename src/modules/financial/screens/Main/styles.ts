@@ -1,6 +1,6 @@
 import { SafeAreaView } from "react-native";
 import styled from "styled-components/native";
-import Text from "../../components/Text";
+import Text from "../../../../components/Text";
 
 export const Container = styled(SafeAreaView)`
   flex: 1;

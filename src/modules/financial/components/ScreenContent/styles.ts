@@ -5,7 +5,7 @@ export const Container = styled.View`
   ${({ theme }) => css`
     background-color: ${theme.COLORS.GRAY_50};
     padding: ${theme.SPACE[24]}px ${theme.SPACE[24]}px;
-    border-top-left-radius: ${theme.RADII.L};
-    border-top-right-radius: ${theme.RADII.L};
+    border-top-left-radius: ${theme.RADII.L}px;
+    border-top-right-radius: ${theme.RADII.L}px;
   `}
 `;
