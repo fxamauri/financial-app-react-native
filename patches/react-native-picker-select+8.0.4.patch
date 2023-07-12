@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-picker-select/index.d.ts b/node_modules/react-native-picker-select/index.d.ts
+index 9f111bc..09644ca 100644
+--- a/node_modules/react-native-picker-select/index.d.ts
++++ b/node_modules/react-native-picker-select/index.d.ts
+@@ -83,7 +83,7 @@ export interface PickerSelectProps {
+     pickerProps?: CustomPickerProps;
+     touchableDoneProps?: CustomTouchableDoneProps;
+     touchableWrapperProps?: CustomTouchableWrapperProps;
+-    Icon?: React.ReactNode;
++    Icon?: React.FC;
+     InputAccessoryView?: React.ReactNode;
+ }
+ 

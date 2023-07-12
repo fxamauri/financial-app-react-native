@@ -1,18 +1,17 @@
 import { TextInput } from "react-native";
 
 import { forwardRef } from "react";
-import { Container, Label, SInput } from "./styles";
+import { SInput } from "./styles";
 import { InputProps } from "./types";
-import InputError from "../InputError";
+
+import InputBase from "../InputBase";
 
 const Input = forwardRef<TextInput, InputProps>(
   ({ label, errorMessage, ...restProps }, ref) => {
     return (
-      <Container>
-        <Label fontFamily="MEDIUM">{label}</Label>
+      <InputBase label={label} errorMessage={errorMessage}>
         <SInput ref={ref} {...restProps} />
-        <InputError message={errorMessage} />
-      </Container>
+      </InputBase>
     );
   }
 );

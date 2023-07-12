@@ -1,6 +1,4 @@
 import { TextInputProps } from "react-native";
+import { InputBaseProps } from "../InputBase/types";
 
-export type InputProps = TextInputProps & {
-  label: string;
-  errorMessage?: string;
-};
+export type InputProps = TextInputProps & Omit<InputBaseProps, "children">;
