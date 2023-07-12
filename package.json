@@ -32,6 +32,7 @@
     "@babel/core": "^7.20.0",
     "@react-native-community/eslint-config": "^3.2.0",
     "@types/react": "~18.0.14",
+    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
     "eslint": "^7.32.0",

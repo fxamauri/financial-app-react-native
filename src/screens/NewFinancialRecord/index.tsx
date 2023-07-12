@@ -5,7 +5,7 @@ import Text from "../../components/Text";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
 
-export default function NewAccountScreen() {
+export default function NewFinancialRecordScreen() {
   const options = [
     { label: "Opção 1", value: "option1" },
     { label: "Opção 2", value: "option2" },
@@ -18,10 +18,10 @@ export default function NewAccountScreen() {
       <Text
         fontFamily="MEDIUM"
         onPress={() => {
-          navigate("NewAccount");
+          navigate("NewFinancialRecord");
         }}
       >
-        NewAccount
+        NewFinancialRecord
       </Text>
 
       <Input
