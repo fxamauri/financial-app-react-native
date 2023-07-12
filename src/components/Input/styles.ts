@@ -10,7 +10,7 @@ export const SInput = styled(TextInput).attrs(({ theme }) => ({
   ${({ theme }) => css`
     background-color: ${theme.COLORS.WHITE};
     color: ${theme.COLORS.GRAY_400};
-    font-family: ${theme.FONT_FAMILY.REGULAR};
+    font-family: ${theme.FONT_FAMILY.TEXT.REGULAR};
     font-size: ${theme.FONT_SIZE.S}px;
     border-radius: ${theme.RADII.S}px;
   `}

@@ -4,10 +4,13 @@ import {
   Roboto_700Bold,
 } from "@expo-google-fonts/roboto";
 
+import { Rubik_400Regular } from "@expo-google-fonts/rubik";
+
 export const fontsToImport = {
   Roboto_400Regular,
   Roboto_500Medium,
   Roboto_700Bold,
+  Rubik_400Regular,
 };
 
 export const theme = {
@@ -25,9 +28,14 @@ export const theme = {
     ORANGE_50: "#e28856",
   },
   FONT_FAMILY: {
-    REGULAR: "Roboto_400Regular",
-    MEDIUM: "Roboto_500Medium",
-    BOLD: "Roboto_700Bold",
+    TEXT: {
+      REGULAR: "Roboto_400Regular",
+      MEDIUM: "Roboto_500Medium",
+      BOLD: "Roboto_700Bold",
+    },
+    TITLE: {
+      REGULAR: "Rubik_400Regular",
+    },
   },
   RADII: {
     S: 10,
@@ -53,4 +61,4 @@ export const theme = {
     M: 20,
     L: 22,
   },
-};
+} as const;

@@ -21,13 +21,13 @@ export default function Select({
           },
           inputIOS: {
             fontSize: theme.FONT_SIZE.S,
-            fontFamily: theme.FONT_FAMILY.REGULAR,
+            fontFamily: theme.FONT_FAMILY.TEXT.REGULAR,
             height: 44,
             color: theme.COLORS.GRAY_600,
           },
           inputAndroid: {
             fontSize: theme.FONT_SIZE.S,
-            fontFamily: theme.FONT_FAMILY.REGULAR,
+            fontFamily: theme.FONT_FAMILY.TEXT.REGULAR,
             height: 44,
             color: theme.COLORS.GRAY_600,
           },
@@ -38,7 +38,7 @@ export default function Select({
           },
           placeholder: {
             fontSize: theme.FONT_SIZE.S,
-            fontFamily: theme.FONT_FAMILY.REGULAR,
+            fontFamily: theme.FONT_FAMILY.TEXT.REGULAR,
             color: theme.COLORS.GRAY_200,
             paddingLeft: theme.SPACE[4],
           },
