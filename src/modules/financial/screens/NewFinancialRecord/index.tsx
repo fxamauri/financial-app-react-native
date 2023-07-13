@@ -1,14 +1,13 @@
 import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
-
-import Text from "../../../../components/Text";
+import { useForm, Controller } from "react-hook-form";
+import { selectAcceptReleaseOptions, selectTypeOptions } from "./constants";
 import Input from "../../../../components/Input";
 import Select from "../../../../components/Select";
 import Container from "../../../../components/Container";
 import Header from "../../components/Header";
-
 import ConfirmButton from "../../components/ConfirmButton";
 import ScreenContent from "../../components/ScreenContent";
+import { FinancialRecord, FinancialType } from "../../entities/FinancialRecord";
 
 export default function NewFinancialRecordScreen() {
   const options = [
@@ -16,49 +15,113 @@ export default function NewFinancialRecordScreen() {
     { label: "Opção 2", value: "option2" },
     { label: "Opção 3", value: "option3" },
   ];
-  const [selectedValue, setSelectedValue] = useState("");
+
   const { navigate, goBack } = useNavigation();
+  const { control, handleSubmit } = useForm<FinancialRecord>({
+    defaultValues: {
+      id: "222",
+      title: "",
+      type: FinancialType.INCOME,
+      parentId: "",
+      acceptRelease: true,
+    },
+  });
+
+  const onSubmit = (data) => console.log(data);
   return (
     <Container>
       <Header
         showBackButton
         title="Inserir Conta"
         backButtonAction={goBack}
-        headerRight={<ConfirmButton onPress={() => alert("add")} />}
+        headerRight={<ConfirmButton onPress={handleSubmit(onSubmit)} />}
       />
       <ScreenContent>
-        <Select
-          label="Conta pai"
-          // errorMessage="error select messag"
-          items={options}
-          onValueChange={(value) => setSelectedValue(value)}
-          value={selectedValue}
+        <Controller
+          control={control}
+          name="parentId"
+          render={({ field: { value, onChange }, fieldState: { error } }) => (
+            <Select
+              label="Conta pai"
+              placeholder={{}}
+              items={options}
+              onValueChange={onChange}
+              value={value}
+              errorMessage={error?.message}
+            />
+          )}
         />
-        <Input
-          label="Código"
-          placeholder="código da conta aqui"
-          keyboardType="numeric"
-          // errorMessage="error message"
+        <Controller
+          control={control}
+          name="id"
+          rules={{
+            required: "O campo código é obrigatório",
+          }}
+          render={({
+            field: { value, onBlur, onChange, ref },
+            fieldState: { error },
+          }) => (
+            <Input
+              label="Código"
+              placeholder="Código da conta"
+              keyboardType="numeric"
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              ref={ref}
+              errorMessage={error?.message}
+            />
+          )}
         />
-        <Input
-          label="Nome"
-          placeholder="código da conta aqui"
-          autoCapitalize="none"
-          // errorMessage="error message"
+        <Controller
+          control={control}
+          name="title"
+          rules={{
+            required: "O campo código é obrigatório",
+          }}
+          render={({
+            field: { value, onBlur, onChange, ref },
+            fieldState: { error },
+          }) => (
+            <Input
+              label="Nome"
+              placeholder="Nome da conta"
+              autoCapitalize="none"
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              ref={ref}
+              errorMessage={error?.message}
+            />
+          )}
         />
-        <Select
-          label="Tipo"
-          // errorMessage="error select messag"
-          items={options}
-          onValueChange={(value) => setSelectedValue(value)}
-          value={selectedValue}
+        <Controller
+          control={control}
+          name="type"
+          render={({ field: { value, onChange }, fieldState: { error } }) => (
+            <Select
+              label="Tipo"
+              placeholder={{}}
+              items={selectTypeOptions}
+              onValueChange={onChange}
+              value={value}
+              errorMessage={error?.message}
+            />
+          )}
         />
-        <Select
-          label="Aceita lançamentos"
-          // errorMessage="error select messag"
-          items={options}
-          onValueChange={(value) => setSelectedValue(value)}
-          value={selectedValue}
+        <Controller
+          control={control}
+          name="acceptRelease"
+          render={({ field: { value, onChange }, fieldState: { error } }) => (
+            <Select
+              label="Aceita lançamentos"
+              placeholder={{}}
+              items={selectAcceptReleaseOptions}
+              onValueChange={onChange}
+              value={value}
+              errorMessage={error?.message}
+            />
+          )}
         />
       </ScreenContent>
     </Container>

@@ -1,5 +1,6 @@
 import PickerSelect from "react-native-picker-select";
 
+import { Platform } from "react-native";
 import { SelectProps } from "./types";
 import SelectRightIcon from "../SelectRightIcon";
 import { theme } from "../../config/theme";
@@ -13,6 +14,7 @@ export default function Select({
   return (
     <InputBase label={label} errorMessage={errorMessage}>
       <PickerSelect
+        useNativeAndroidPickerStyle={false}
         Icon={SelectRightIcon}
         style={{
           iconContainer: {
@@ -30,7 +32,11 @@ export default function Select({
             fontFamily: theme.FONT_FAMILY.TEXT.REGULAR,
             height: 44,
             color: theme.COLORS.GRAY_800,
+            backgroundColor: theme.COLORS.WHITE,
+            borderRadius: theme.RADII.S,
+            paddingLeft: theme.SPACE[12],
           },
+
           viewContainer: {
             borderRadius: theme.RADII.S,
             backgroundColor: theme.COLORS.WHITE,
@@ -40,7 +46,8 @@ export default function Select({
             fontSize: theme.FONT_SIZE.S,
             fontFamily: theme.FONT_FAMILY.TEXT.REGULAR,
             color: theme.COLORS.GRAY_200,
-            paddingLeft: theme.SPACE[4],
+            paddingLeft:
+              Platform.OS === "ios" ? theme.SPACE[4] : theme.SPACE[12],
           },
         }}
         placeholder={{
