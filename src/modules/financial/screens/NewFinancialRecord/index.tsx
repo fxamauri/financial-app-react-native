@@ -6,7 +6,9 @@ import Input from "../../../../components/Input";
 import Select from "../../../../components/Select";
 import Container from "../../../../components/Container";
 import Header from "../../components/Header";
-import AddButton from "../../components/AddButton";
+
+import ConfirmButton from "../../components/ConfirmButton";
+import ScreenContent from "../../components/ScreenContent";
 
 export default function NewFinancialRecordScreen() {
   const options = [
@@ -15,37 +17,50 @@ export default function NewFinancialRecordScreen() {
     { label: "Opção 3", value: "option3" },
   ];
   const [selectedValue, setSelectedValue] = useState("");
-  const { navigate } = useNavigation();
+  const { navigate, goBack } = useNavigation();
   return (
     <Container>
       <Header
         showBackButton
-        title="Plano de Contas"
-        backButtonAction={() => alert("backbutton")}
-        headerRight={<AddButton onPress={() => alert("add")} />}
+        title="Inserir Conta"
+        backButtonAction={goBack}
+        headerRight={<ConfirmButton onPress={() => alert("add")} />}
       />
-      <Text
-        fontFamily="MEDIUM"
-        onPress={() => {
-          navigate("NewFinancialRecord");
-        }}
-      >
-        NewFinancialRecord
-      </Text>
-
-      <Input
-        label="Código"
-        placeholder="código da conta aqui"
-        keyboardType="numeric"
-        errorMessage="error message"
-      />
-      <Select
-        label="Select"
-        errorMessage="error select messag"
-        items={options}
-        onValueChange={(value) => setSelectedValue(value)}
-        value={selectedValue}
-      />
+      <ScreenContent>
+        <Select
+          label="Conta pai"
+          // errorMessage="error select messag"
+          items={options}
+          onValueChange={(value) => setSelectedValue(value)}
+          value={selectedValue}
+        />
+        <Input
+          label="Código"
+          placeholder="código da conta aqui"
+          keyboardType="numeric"
+          // errorMessage="error message"
+        />
+        <Input
+          label="Nome"
+          placeholder="código da conta aqui"
+          autoCapitalize="none"
+          // errorMessage="error message"
+        />
+        <Select
+          label="Tipo"
+          // errorMessage="error select messag"
+          items={options}
+          onValueChange={(value) => setSelectedValue(value)}
+          value={selectedValue}
+        />
+        <Select
+          label="Aceita lançamentos"
+          // errorMessage="error select messag"
+          items={options}
+          onValueChange={(value) => setSelectedValue(value)}
+          value={selectedValue}
+        />
+      </ScreenContent>
     </Container>
   );
 }

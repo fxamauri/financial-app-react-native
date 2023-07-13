@@ -4,6 +4,7 @@ import Text from "../Text";
 
 export const Container = styled.View`
   width: 100%;
+  margin: ${({ theme }) => theme.SPACE[8]}px 0;
 `;
 
 export const Label = styled(Text)`

@@ -1,5 +1,6 @@
 import { FlatList } from "react-native";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import {
   HeaderContentList,
   FinancialRecordNumberRows,
@@ -24,12 +25,19 @@ const financialRecords: FinancialRecord[] = [
   { title: `2 - conta 2`, type: FinancialType.EXPENSE },
 ];
 export default function MainScreen() {
+  const { navigate } = useNavigation();
   const [modalDeleteIsVisible, setModalDeleteIsVisible] = useState(false);
   return (
     <Container>
       <Header
         title="Plano de Contas"
-        headerRight={<AddButton onPress={() => alert("add")} />}
+        headerRight={
+          <AddButton
+            onPress={() => {
+              navigate("NewFinancialRecord");
+            }}
+          />
+        }
       />
       <SearchInput placeholder="Pesquisar conta" />
       <ScreenContent>
