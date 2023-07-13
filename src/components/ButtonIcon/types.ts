@@ -1,8 +1,8 @@
 import { ComponentProps } from "react";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 import { TouchableOpacityProps } from "react-native";
 
-type MaterialIconsProps = ComponentProps<typeof MaterialIcons>;
+type MaterialIconsProps = ComponentProps<typeof Feather>;
 
 export type ButtonIconProps = TouchableOpacityProps & {
   name?: MaterialIconsProps["name"];

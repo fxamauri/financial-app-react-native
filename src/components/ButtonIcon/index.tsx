@@ -1,5 +1,5 @@
 import { TouchableOpacity } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
 import { ButtonIconProps } from "./types";
 
@@ -11,7 +11,7 @@ export default function ButtonIcon({
 }: ButtonIconProps) {
   return (
     <TouchableOpacity {...touchableOpacityProps}>
-      <MaterialIcons name={name} size={size} color={color} />
+      <Feather name={name} size={size} color={color} />
     </TouchableOpacity>
   );
 }
