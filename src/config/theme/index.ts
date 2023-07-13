@@ -17,9 +17,10 @@ export const theme = {
   COLORS: {
     WHITE: "#ffffff",
     PINK_50: "#ff6680",
-    GRAY_600: "#3d3d4c",
-    GRAY_400: "#777777",
-    GRAY_300: "#6A6A6A",
+    GRAY_700: "#3d3d4c",
+    GRAY_600: "#777777",
+    GRAY_400: "#6A6A6A",
+    GRAY_300: "#747474",
     GRAY_200: "#a0a0b2",
     GRAY_100: "#c4c4d1",
     GRAY_50: "#f0edf5",

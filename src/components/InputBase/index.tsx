@@ -9,7 +9,7 @@ export default function InputBase({
 }: InputBaseProps) {
   return (
     <Container>
-      <Label fontFamily="MEDIUM">{label}</Label>
+      {label && <Label fontFamily="MEDIUM">{label}</Label>}
       {children}
       <InputError message={errorMessage} />
     </Container>

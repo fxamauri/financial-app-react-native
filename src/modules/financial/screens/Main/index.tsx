@@ -1,4 +1,5 @@
 import { FlatList } from "react-native";
+import { useState } from "react";
 import {
   HeaderContentList,
   FinancialRecordNumberRows,
@@ -12,6 +13,10 @@ import FinancialItem from "../../components/FinancialItem";
 import SeparatorItemList from "../../components/SeparatorItemList";
 import Header from "../../components/Header";
 import AddButton from "../../components/AddButton";
+import Input from "../../../../components/Input";
+import ButtonIcon from "../../../../components/ButtonIcon";
+import { theme } from "../../../../config/theme";
+import SearchInput from "../../components/SearchInput";
 
 const financialRecords: FinancialRecord[] = [
   { title: `1 - conta 1`, type: FinancialType.INCOME },
@@ -22,10 +27,11 @@ export default function MainScreen() {
     <Container>
       <Header
         showBackButton
-        title="Contas"
+        title="Plano de Contas"
         backButtonAction={() => alert("backbutton")}
         headerRight={<AddButton onPress={() => alert("add")} />}
       />
+      <SearchInput placeholder="Pesquisar conta" />
       <ScreenContent>
         <HeaderContentList>
           <Title>Listagem</Title>

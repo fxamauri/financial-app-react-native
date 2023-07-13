@@ -7,7 +7,7 @@ export const Container = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 ${({ theme }) => theme.SPACE[12]}px;
+  padding: 0 ${({ theme }) => theme.SPACE[16]}px;
 `;
 
 export const Content = styled.View`
@@ -31,6 +31,6 @@ export const Title = styled(Text).attrs({
 })`
   ${({ theme }) => css`
     color: ${theme.COLORS.WHITE};
-    font-size: ${theme.FONT_SIZE.M}px;
+    font-size: ${theme.FONT_SIZE.L}px;
   `}
 `;

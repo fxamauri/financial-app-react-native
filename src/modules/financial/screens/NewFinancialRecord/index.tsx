@@ -1,9 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { Container } from "./styles";
+
 import Text from "../../../../components/Text";
 import Input from "../../../../components/Input";
 import Select from "../../../../components/Select";
+import Container from "../../../../components/Container";
+import Header from "../../components/Header";
+import AddButton from "../../components/AddButton";
 
 export default function NewFinancialRecordScreen() {
   const options = [
@@ -15,6 +18,12 @@ export default function NewFinancialRecordScreen() {
   const { navigate } = useNavigation();
   return (
     <Container>
+      <Header
+        showBackButton
+        title="Plano de Contas"
+        backButtonAction={() => alert("backbutton")}
+        headerRight={<AddButton onPress={() => alert("add")} />}
+      />
       <Text
         fontFamily="MEDIUM"
         onPress={() => {

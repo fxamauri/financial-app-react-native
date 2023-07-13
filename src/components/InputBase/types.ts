@@ -1,7 +1,7 @@
 import { InputErrorProps } from "../InputError/types";
 
 export type InputBaseProps = {
-  label: string;
+  label?: string;
   errorMessage?: InputErrorProps["message"];
   children: React.ReactNode;
 };

@@ -1,16 +1,19 @@
 import { TextInput } from "react-native";
 
 import { forwardRef } from "react";
-import { SInput } from "./styles";
+import { Content, SInput } from "./styles";
 import { InputProps } from "./types";
 
 import InputBase from "../InputBase";
 
 const Input = forwardRef<TextInput, InputProps>(
-  ({ label, errorMessage, ...restProps }, ref) => {
+  ({ label, startAdornment, variant, errorMessage, ...restProps }, ref) => {
     return (
       <InputBase label={label} errorMessage={errorMessage}>
-        <SInput ref={ref} {...restProps} />
+        <Content variant={variant}>
+          {startAdornment}
+          <SInput ref={ref} {...restProps} />
+        </Content>
       </InputBase>
     );
   }

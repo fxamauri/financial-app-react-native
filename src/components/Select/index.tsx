@@ -16,20 +16,20 @@ export default function Select({
         Icon={SelectRightIcon}
         style={{
           iconContainer: {
-            top: 7,
-            right: 6,
+            top: 15,
+            right: 12,
           },
           inputIOS: {
             fontSize: theme.FONT_SIZE.S,
             fontFamily: theme.FONT_FAMILY.TEXT.REGULAR,
             height: 44,
-            color: theme.COLORS.GRAY_600,
+            color: theme.COLORS.GRAY_700,
           },
           inputAndroid: {
             fontSize: theme.FONT_SIZE.S,
             fontFamily: theme.FONT_FAMILY.TEXT.REGULAR,
             height: 44,
-            color: theme.COLORS.GRAY_600,
+            color: theme.COLORS.GRAY_700,
           },
           viewContainer: {
             borderRadius: theme.RADII.S,

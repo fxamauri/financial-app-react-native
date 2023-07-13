@@ -1,11 +1,11 @@
 import styled from "styled-components/native";
 
-import ButtonIcon from "../ButtonIcon";
+import { AntDesign } from "@expo/vector-icons";
 
-const SelectRightIcon = styled(ButtonIcon).attrs(({ theme }) => ({
-  size: 30,
-  color: theme.COLORS.GRAY_600,
-  name: "keyboard-arrow-down",
+const SelectRightIcon = styled(AntDesign).attrs(({ theme }) => ({
+  size: 14,
+  color: theme.COLORS.GRAY_300,
+  name: "caretdown",
 }))``;
 
 export default SelectRightIcon;
