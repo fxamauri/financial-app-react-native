@@ -8,6 +8,7 @@ import Header from "../../components/Header";
 import ConfirmButton from "../../components/ConfirmButton";
 import ScreenContent from "../../components/ScreenContent";
 import { FinancialRecord, FinancialType } from "../../entities/FinancialRecord";
+import useFinancial from "../../hooks/useFinancial";
 
 export default function NewFinancialRecordScreen() {
   const options = [
@@ -16,10 +17,11 @@ export default function NewFinancialRecordScreen() {
     { label: "Opção 3", value: "option3" },
   ];
 
+  const { addRecord } = useFinancial();
   const { navigate, goBack } = useNavigation();
   const { control, handleSubmit } = useForm<FinancialRecord>({
     defaultValues: {
-      id: "222",
+      code: "",
       title: "",
       type: FinancialType.INCOME,
       parentId: "",
@@ -27,14 +29,13 @@ export default function NewFinancialRecordScreen() {
     },
   });
 
-  const onSubmit = (data) => console.log(data);
   return (
     <Container>
       <Header
         showBackButton
         title="Inserir Conta"
         backButtonAction={goBack}
-        headerRight={<ConfirmButton onPress={handleSubmit(onSubmit)} />}
+        headerRight={<ConfirmButton onPress={handleSubmit(addRecord)} />}
       />
       <ScreenContent>
         <Controller
@@ -53,7 +54,7 @@ export default function NewFinancialRecordScreen() {
         />
         <Controller
           control={control}
-          name="id"
+          name="code"
           rules={{
             required: "O campo código é obrigatório",
           }}

@@ -19,12 +19,10 @@ import ButtonIcon from "../../../../components/ButtonIcon";
 import { theme } from "../../../../config/theme";
 import SearchInput from "../../components/SearchInput";
 import ModalDelete from "../../components/ModalDelete";
+import useFinancial from "../../hooks/useFinancial";
 
-const financialRecords: FinancialRecord[] = [
-  { title: `1 - conta 1`, type: FinancialType.INCOME },
-  { title: `2 - conta 2`, type: FinancialType.EXPENSE },
-];
 export default function MainScreen() {
+  const { recordsStorage } = useFinancial();
   const { navigate } = useNavigation();
   const [modalDeleteIsVisible, setModalDeleteIsVisible] = useState(false);
   return (
@@ -47,11 +45,12 @@ export default function MainScreen() {
         </HeaderContentList>
         <ListContent>
           <FlatList
-            data={financialRecords}
+            data={recordsStorage}
             ItemSeparatorComponent={SeparatorItemList}
-            keyExtractor={(item) => item.title}
+            keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
               <FinancialItem
+                code={item.code}
                 title={item.title}
                 type={item.type}
                 onPress={() => {

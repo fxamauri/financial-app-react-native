@@ -5,8 +5,9 @@ export enum FinancialType {
 
 export type FinancialRecord = {
   id: string;
+  code: string;
   title: string;
   type: FinancialType;
-  parentId: string;
+  parentId: string | null;
   acceptRelease: boolean;
 };
