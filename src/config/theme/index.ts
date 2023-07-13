@@ -4,23 +4,25 @@ import {
   Roboto_700Bold,
 } from "@expo-google-fonts/roboto";
 
-import { Rubik_400Regular } from "@expo-google-fonts/rubik";
+import { Rubik_400Regular, Rubik_700Bold } from "@expo-google-fonts/rubik";
 
 export const fontsToImport = {
   Roboto_400Regular,
   Roboto_500Medium,
   Roboto_700Bold,
   Rubik_400Regular,
+  Rubik_700Bold,
 };
 
 export const theme = {
   COLORS: {
     WHITE: "#ffffff",
     PINK_50: "#ff6680",
-    GRAY_700: "#3d3d4c",
-    GRAY_600: "#777777",
-    GRAY_400: "#6A6A6A",
-    GRAY_300: "#747474",
+    GRAY_800: "#3d3d4c",
+    GRAY_700: "#777777",
+    GRAY_600: "#6A6A6A",
+    GRAY_500: "#747474",
+    GRAY_400: "#6C6C80",
     GRAY_200: "#a0a0b2",
     GRAY_100: "#c4c4d1",
     GRAY_50: "#f0edf5",
@@ -36,6 +38,7 @@ export const theme = {
     },
     TITLE: {
       REGULAR: "Rubik_400Regular",
+      BOLD: "Rubik_700Bold",
     },
   },
   RADII: {

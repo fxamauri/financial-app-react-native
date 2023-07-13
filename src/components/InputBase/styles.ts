@@ -9,7 +9,7 @@ export const Container = styled.View`
 export const Label = styled(Text)`
   ${({ theme }) => css`
     font-size: ${theme.FONT_SIZE.S}px;
-    color: ${theme.COLORS.GRAY_400};
+    color: ${theme.COLORS.GRAY_600};
     margin-bottom: ${theme.SPACE[4]}px;
   `}
 `;

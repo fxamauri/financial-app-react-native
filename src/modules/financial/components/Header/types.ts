@@ -1,5 +1,5 @@
 export type HeaderProps = {
-  showBackButton: Boolean;
+  showBackButton?: Boolean;
   backButtonAction?: () => void;
   title: string;
   headerRight?: React.ReactNode;

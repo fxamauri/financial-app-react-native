@@ -14,9 +14,6 @@ export const Content = styled.View`
   flex-direction: row;
   align-items: center;
 `;
-export const ContentBackButton = styled.View`
-  width: 40px;
-`;
 
 export const BackButton = styled(ButtonIcon).attrs(({ theme }) => ({
   size: 30,

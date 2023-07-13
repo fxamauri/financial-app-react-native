@@ -23,13 +23,13 @@ export default function Select({
             fontSize: theme.FONT_SIZE.S,
             fontFamily: theme.FONT_FAMILY.TEXT.REGULAR,
             height: 44,
-            color: theme.COLORS.GRAY_700,
+            color: theme.COLORS.GRAY_800,
           },
           inputAndroid: {
             fontSize: theme.FONT_SIZE.S,
             fontFamily: theme.FONT_FAMILY.TEXT.REGULAR,
             height: 44,
-            color: theme.COLORS.GRAY_700,
+            color: theme.COLORS.GRAY_800,
           },
           viewContainer: {
             borderRadius: theme.RADII.S,

@@ -20,7 +20,7 @@ export const SInput = styled(TextInput).attrs(({ theme }) => ({
 }))`
   flex: 1;
   ${({ theme }) => css`
-    color: ${theme.COLORS.GRAY_600};
+    color: ${theme.COLORS.GRAY_700};
     font-family: ${theme.FONT_FAMILY.TEXT.REGULAR};
     font-size: ${theme.FONT_SIZE.S}px;
   `}

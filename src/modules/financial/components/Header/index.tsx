@@ -16,9 +16,7 @@ export default function Header({
   return (
     <Container>
       <Content>
-        <ContentBackButton>
-          {showBackButton && <BackButton onPress={backButtonAction} />}
-        </ContentBackButton>
+        {showBackButton && <BackButton onPress={backButtonAction} />}
         <Title>{title}</Title>
       </Content>
       {!!headerRight && <Content>{headerRight}</Content>}
