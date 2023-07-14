@@ -1,12 +1,10 @@
 import { FlatList } from "react-native";
-import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   HeaderContentList,
   FinancialRecordNumberRows,
   ListContent,
 } from "./styles";
-import { FinancialRecord, FinancialType } from "../../entities/FinancialRecord";
 import Title from "../../../../components/Title";
 import Container from "../../../../components/Container";
 import ScreenContent from "../../components/ScreenContent";
@@ -14,17 +12,13 @@ import FinancialItem from "../../components/FinancialItem";
 import SeparatorItemList from "../../components/SeparatorItemList";
 import Header from "../../components/Header";
 import AddButton from "../../components/AddButton";
-import Input from "../../../../components/Input";
-import ButtonIcon from "../../../../components/ButtonIcon";
-import { theme } from "../../../../config/theme";
 import SearchInput from "../../components/SearchInput";
-import ModalDelete from "../../components/ModalDelete";
 import useFinancial from "../../hooks/useFinancial";
 
 export default function MainScreen() {
-  const { records, setSearchTerm } = useFinancial();
+  const { records, setSearchTerm, removeRecord } = useFinancial();
   const { navigate } = useNavigation();
-  const [modalDeleteIsVisible, setModalDeleteIsVisible] = useState(false);
+
   return (
     <Container>
       <Header
@@ -56,9 +50,10 @@ export default function MainScreen() {
                 title={item.title}
                 type={item.type}
                 onDelete={() => {
-                  setModalDeleteIsVisible((current) => !current);
+                  removeRecord(item.id);
                 }}
                 onPress={() => {
+                  console.log(`onpre`);
                   navigate("DetailsFinancialRecord", {
                     id: item.id,
                   });
@@ -68,12 +63,6 @@ export default function MainScreen() {
           />
         </ListContent>
       </ScreenContent>
-      <ModalDelete
-        text="1.1 - Taxa condominal"
-        visible={modalDeleteIsVisible}
-        onClose={() => setModalDeleteIsVisible(false)}
-        onClickConfirm={() => setModalDeleteIsVisible(false)}
-      />
     </Container>
   );
 }

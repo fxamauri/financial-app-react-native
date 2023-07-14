@@ -3,15 +3,17 @@ import uuid from "react-native-uuid";
 import Toast from "react-native-toast-message";
 import { useNavigation } from "@react-navigation/native";
 import { financialRecordsValidations } from "./utils";
-import useFinancialRecords from "../../../stores/useFinancialRecords";
+import useFinancialRecords from "../../stores/useFinancialRecords";
 import { FinancialRecord } from "../../entities/FinancialRecord";
 import useSearchFinancialRecords from "../useSearchFinancialRecords";
 
 export default function useFinancial() {
   const { navigate } = useNavigation();
   const addRecordStorage = useFinancialRecords((state) => state.add);
+  const removeRecord = useFinancialRecords((state) => state.remove);
   const reset = useFinancialRecords((state) => state.reset);
   const recordsStorage = useFinancialRecords((state) => state.records);
+
   const { filteredResults, setSearchTerm } =
     useSearchFinancialRecords(recordsStorage);
 
@@ -56,6 +58,7 @@ export default function useFinancial() {
 
   return {
     addRecord,
+    removeRecord,
     recordById,
     setSearchTerm,
     records: filteredResults,

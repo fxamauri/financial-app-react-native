@@ -11,6 +11,10 @@ const useFinancialRecords = create<State>()(
         records: [],
         add: (record) =>
           set((state) => ({ records: [...state.records, record] })),
+        remove: (id) =>
+          set((state) => ({
+            records: state.records.filter((record) => record.id !== id),
+          })),
         reset: () => set(() => ({ records: [] })),
       }),
       {
