@@ -3,6 +3,7 @@ import { Container, Title, DeleteButton } from "./styles";
 
 import { FinancialItemItemProps } from "./types";
 import ModalDelete from "../ModalDelete";
+import { buildCodeTitle } from "../../utils";
 
 function FinancialItem({
   code,
@@ -11,7 +12,7 @@ function FinancialItem({
   onDelete,
   onPress,
 }: FinancialItemItemProps) {
-  const codeTitle = `${code} - ${title}`;
+  const codeTitle = buildCodeTitle({ code, title });
   const [modalDeleteIsVisible, setModalDeleteIsVisible] = useState(false);
 
   const toggleModal = useCallback(() => {

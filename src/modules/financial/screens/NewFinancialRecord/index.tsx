@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { useForm, Controller } from "react-hook-form";
+import { useMemo } from "react";
 import { selectAcceptReleaseOptions, selectTypeOptions } from "./constants";
 import Input from "../../../../components/Input";
 import Select from "../../../../components/Select";
@@ -9,16 +10,19 @@ import ConfirmButton from "../../components/ConfirmButton";
 import ScreenContent from "../../components/ScreenContent";
 import { FinancialRecord, FinancialType } from "../../entities/FinancialRecord";
 import useFinancial from "../../hooks/useFinancial";
+import { buildCodeTitle } from "../../utils";
 
 export default function NewFinancialRecordScreen() {
-  const options = [
-    { label: "Opção 1", value: "option1" },
-    { label: "Opção 2", value: "option2" },
-    { label: "Opção 3", value: "option3" },
-  ];
-
-  const { addRecord } = useFinancial();
-  const { navigate, goBack } = useNavigation();
+  const { addRecord, records } = useFinancial();
+  const selectParentOptions = useMemo(
+    () =>
+      records.map(({ id, code, title }) => ({
+        label: buildCodeTitle({ code, title }),
+        value: id,
+      })),
+    [records]
+  );
+  const { goBack } = useNavigation();
   const { control, handleSubmit } = useForm<FinancialRecord>({
     defaultValues: {
       code: "",
@@ -44,8 +48,7 @@ export default function NewFinancialRecordScreen() {
           render={({ field: { value, onChange }, fieldState: { error } }) => (
             <Select
               label="Conta pai"
-              placeholder={{}}
-              items={options}
+              items={selectParentOptions}
               onValueChange={onChange}
               value={value}
               errorMessage={error?.message}
