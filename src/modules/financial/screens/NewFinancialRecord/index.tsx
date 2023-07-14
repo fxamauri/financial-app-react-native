@@ -78,7 +78,7 @@ export default function NewFinancialRecordScreen() {
           control={control}
           name="title"
           rules={{
-            required: "O campo código é obrigatório",
+            required: "O campo nome é obrigatório",
           }}
           render={({
             field: { value, onBlur, onChange, ref },

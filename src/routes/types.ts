@@ -1,4 +1,4 @@
-import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 declare global {
   namespace ReactNavigation {
@@ -9,6 +9,9 @@ declare global {
 export type RootStackParamList = {
   Main: undefined;
   NewFinancialRecord: undefined;
+  DetailsFinancialRecord: {
+    id: string;
+  };
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
