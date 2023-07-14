@@ -50,7 +50,13 @@ export default function useFinancial() {
         });
         navigate("Main");
       } catch (error) {
-        console.log(error);
+        if (error instanceof Error) {
+          Toast.show({
+            type: "error",
+            text1: "Erro",
+            text2: error.message,
+          });
+        }
       }
     },
     [addRecordStorage, navigate, recordsStorage]
