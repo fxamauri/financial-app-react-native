@@ -53,7 +53,6 @@ export default function MainScreen() {
                   removeRecord(item.id);
                 }}
                 onPress={() => {
-                  console.log(`onpre`);
                   navigate("DetailsFinancialRecord", {
                     id: item.id,
                   });

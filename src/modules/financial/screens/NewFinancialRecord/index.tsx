@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { useForm, Controller } from "react-hook-form";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { selectAcceptReleaseOptions, selectTypeOptions } from "./constants";
 import Input from "../../../../components/Input";
 import Select from "../../../../components/Select";
@@ -10,7 +10,7 @@ import ConfirmButton from "../../components/ConfirmButton";
 import ScreenContent from "../../components/ScreenContent";
 import { FinancialRecord, FinancialType } from "../../entities/FinancialRecord";
 import useFinancial from "../../hooks/useFinancial";
-import { buildCodeTitle } from "../../utils";
+import { buildCodeTitle, suggestNextCode } from "../../utils";
 
 export default function NewFinancialRecordScreen() {
   const { addRecord, records } = useFinancial();
@@ -23,7 +23,7 @@ export default function NewFinancialRecordScreen() {
     [records]
   );
   const { goBack } = useNavigation();
-  const { control, handleSubmit } = useForm<FinancialRecord>({
+  const { control, handleSubmit, watch, setValue } = useForm<FinancialRecord>({
     defaultValues: {
       code: "",
       title: "",
@@ -32,6 +32,15 @@ export default function NewFinancialRecordScreen() {
       acceptRelease: true,
     },
   });
+
+  const parentId = watch("parentId");
+  useEffect(() => {
+    if (parentId) {
+      setValue("code", suggestNextCode(records, parentId));
+      return;
+    }
+    setValue("code", "");
+  }, [parentId, records, setValue]);
 
   return (
     <Container>
