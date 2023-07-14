@@ -1,10 +1,11 @@
 import styled, { css } from "styled-components/native";
+import { TouchableOpacity } from "react-native";
 import { TitleProps } from "./types";
 import Text from "../../../../components/Text";
 import ButtonIcon from "../../../../components/ButtonIcon";
 import { FinancialType } from "../../entities/FinancialRecord";
 
-export const Container = styled.View`
+export const Container = styled(TouchableOpacity)`
   width: 100%;
   height: 60px;
   flex-direction: row;

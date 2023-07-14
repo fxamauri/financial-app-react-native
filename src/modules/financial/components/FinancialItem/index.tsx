@@ -6,14 +6,15 @@ export default function FinancialItem({
   code,
   title,
   type,
+  onDelete,
   onPress,
 }: FinancialItemItemProps) {
   return (
-    <Container>
+    <Container onPress={onPress}>
       <Title type={type}>
         {code} - {title}
       </Title>
-      <DeleteButton onPress={onPress} />
+      <DeleteButton onPress={onDelete} />
     </Container>
   );
 }

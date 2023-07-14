@@ -22,7 +22,7 @@ import ModalDelete from "../../components/ModalDelete";
 import useFinancial from "../../hooks/useFinancial";
 
 export default function MainScreen() {
-  const { recordsStorage } = useFinancial();
+  const { records, setSearchTerm } = useFinancial();
   const { navigate } = useNavigation();
   const [modalDeleteIsVisible, setModalDeleteIsVisible] = useState(false);
   return (
@@ -37,15 +37,17 @@ export default function MainScreen() {
           />
         }
       />
-      <SearchInput placeholder="Pesquisar conta" />
+      <SearchInput placeholder="Pesquisar conta" onChangeText={setSearchTerm} />
       <ScreenContent>
         <HeaderContentList>
           <Title>Listagem</Title>
-          <FinancialRecordNumberRows>27 registros</FinancialRecordNumberRows>
+          <FinancialRecordNumberRows>
+            {records.length} registros
+          </FinancialRecordNumberRows>
         </HeaderContentList>
         <ListContent>
           <FlatList
-            data={recordsStorage}
+            data={records}
             ItemSeparatorComponent={SeparatorItemList}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
@@ -53,8 +55,13 @@ export default function MainScreen() {
                 code={item.code}
                 title={item.title}
                 type={item.type}
-                onPress={() => {
+                onDelete={() => {
                   setModalDeleteIsVisible((current) => !current);
+                }}
+                onPress={() => {
+                  navigate("DetailsFinancialRecord", {
+                    id: item.id,
+                  });
                 }}
               />
             )}

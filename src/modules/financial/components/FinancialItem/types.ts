@@ -4,6 +4,7 @@ export type FinancialItemItemProps = {
   code: string;
   title: string;
   type: FinancialType;
+  onDelete: () => void;
   onPress: () => void;
 };
 
