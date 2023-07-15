@@ -11,7 +11,6 @@ export default function useFinancial() {
   const { navigate } = useNavigation();
   const addRecordStorage = useFinancialRecords((state) => state.add);
   const removeRecord = useFinancialRecords((state) => state.remove);
-  const reset = useFinancialRecords((state) => state.reset);
   const recordsStorage = useFinancialRecords((state) => state.records);
 
   const { filteredResults, setSearchTerm } =
@@ -30,7 +29,6 @@ export default function useFinancial() {
 
       try {
         validate.add(record);
-        // reset();
 
         const { code, title, type, parentId, acceptRelease } = record;
         addRecordStorage({

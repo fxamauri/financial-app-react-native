@@ -6,6 +6,7 @@ import ModalDelete from "../ModalDelete";
 import { buildCodeTitle } from "../../utils";
 
 function FinancialItem({
+  id,
   code,
   title,
   type,
@@ -19,20 +20,24 @@ function FinancialItem({
     setModalDeleteIsVisible((current) => !current);
   }, []);
 
-  const onpressInternalDelete = useCallback(() => {
+  const onPressInternal = useCallback(() => {
+    onPress(id);
+  }, [id, onPress]);
+
+  const onPressInternalDelete = useCallback(() => {
     toggleModal();
   }, [toggleModal]);
 
   const onClickConfirm = useCallback(() => {
     toggleModal();
-    onDelete();
-  }, [onDelete, toggleModal]);
+    onDelete(id);
+  }, [id, onDelete, toggleModal]);
 
   return (
     <>
-      <Container onPress={onPress}>
+      <Container onPress={onPressInternal}>
         <Title type={type}>{codeTitle}</Title>
-        <DeleteButton onPress={onpressInternalDelete} />
+        <DeleteButton onPress={onPressInternalDelete} />
       </Container>
       <ModalDelete
         text={codeTitle}

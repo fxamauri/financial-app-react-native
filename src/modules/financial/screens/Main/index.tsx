@@ -1,5 +1,6 @@
 import { FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useCallback } from "react";
 import {
   HeaderContentList,
   FinancialRecordNumberRows,
@@ -14,11 +15,40 @@ import Header from "../../components/Header";
 import AddButton from "../../components/AddButton";
 import SearchInput from "../../components/SearchInput";
 import useFinancial from "../../hooks/useFinancial";
+import { FinancialRecord } from "../../entities/FinancialRecord";
 
 export default function MainScreen() {
   const { records, setSearchTerm, removeRecord } = useFinancial();
   const { navigate } = useNavigation();
 
+  const onDelete = useCallback(
+    (id: string) => {
+      removeRecord(id);
+    },
+    [removeRecord]
+  );
+
+  const onPress = useCallback(
+    (id: string) => {
+      navigate("DetailsFinancialRecord", {
+        id,
+      });
+    },
+    [navigate]
+  );
+  const renderItem = useCallback(
+    ({ item }: { item: FinancialRecord }) => (
+      <FinancialItem
+        id={item.id}
+        code={item.code}
+        title={item.title}
+        type={item.type}
+        onDelete={onDelete}
+        onPress={onPress}
+      />
+    ),
+    [onDelete, onPress]
+  );
   return (
     <Container>
       <Header
@@ -44,21 +74,7 @@ export default function MainScreen() {
             data={records}
             ItemSeparatorComponent={SeparatorItemList}
             keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <FinancialItem
-                code={item.code}
-                title={item.title}
-                type={item.type}
-                onDelete={() => {
-                  removeRecord(item.id);
-                }}
-                onPress={() => {
-                  navigate("DetailsFinancialRecord", {
-                    id: item.id,
-                  });
-                }}
-              />
-            )}
+            renderItem={renderItem}
           />
         </ListContent>
       </ScreenContent>
