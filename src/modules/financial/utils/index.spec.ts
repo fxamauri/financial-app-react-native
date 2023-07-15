@@ -9,13 +9,13 @@ describe("suggestNextCode", () => {
         id: "45e2a0c9-a861-419b-89bd-5284f5553e5b",
         code: "1",
         title: "Record 1",
-        parentId: null,
+        parentId: "",
       },
       {
         id: "8268c784-63b5-4391-bb2d-6b37446f0720",
         code: "2",
         title: "Record 2",
-        parentId: null,
+        parentId: "",
       },
     ] as FinancialRecord[];
 
@@ -30,13 +30,13 @@ describe("suggestNextCode", () => {
         id: "45e2a0c9-a861-419b-89bd-5284f5553e5b",
         code: "1",
         title: "Record 1",
-        parentId: null,
+        parentId: "",
       },
       {
         id: "8268c784-63b5-4391-bb2d-6b37446f0720",
         code: "2",
         title: "Record 2",
-        parentId: null,
+        parentId: "",
       },
     ] as FinancialRecord[];
 
@@ -51,7 +51,7 @@ describe("suggestNextCode", () => {
         id: "45e2a0c9-a861-419b-89bd-5284f5553e5b",
         code: "1",
         title: "Record 1",
-        parentId: null,
+        parentId: "",
       },
       {
         id: "bb376e30-2082-4c69-b0c0-9328668c19de",
@@ -72,7 +72,7 @@ describe("suggestNextCode", () => {
         id: "45e2a0c9-a861-419b-89bd-5284f5553e5b",
         code: "1",
         title: "Record 1",
-        parentId: null,
+        parentId: "",
       },
       {
         id: "bb376e30-2082-4c69-b0c0-9328668c19de",
@@ -99,7 +99,7 @@ describe("suggestNextCode", () => {
         id: "45e2a0c9-a861-419b-89bd-5284f5553e5b",
         code: "1",
         title: "Record 1",
-        parentId: null,
+        parentId: "",
       },
       {
         id: "6db32494-8b13-4561-9197-d37086501748",
@@ -126,7 +126,7 @@ describe("suggestNextCode", () => {
         id: "45e2a0c9-a861-419b-89bd-5284f5553e5b",
         code: "1",
         title: "Record 1",
-        parentId: null,
+        parentId: "",
       },
       {
         id: "bb376e30-2082-4c69-b0c0-9328668c19de",
@@ -153,7 +153,7 @@ describe("suggestNextCode", () => {
         id: "45e2a0c9-a861-419b-89bd-5284f5553e5b",
         code: "1",
         title: "Record 1",
-        parentId: null,
+        parentId: "",
       },
       {
         id: "bb376e30-2082-4c69-b0c0-9328668c19de",
@@ -186,7 +186,7 @@ describe("suggestNextCode", () => {
         id: "45e2a0c9-a861-419b-89bd-5284f5553e5b",
         code: "1",
         title: "Record 1",
-        parentId: null,
+        parentId: "",
       },
       {
         id: "bb376e30-2082-4c69-b0c0-9328668c19de",
@@ -225,7 +225,7 @@ describe("suggestNextCode", () => {
         id: "45e2a0c9-a861-419b-89bd-5284f5553e5b",
         code: "1",
         title: "Record 1",
-        parentId: null,
+        parentId: "",
       },
       {
         id: "bb376e30-2082-4c69-b0c0-9328668c19de",
@@ -258,7 +258,7 @@ describe("suggestNextCode", () => {
         id: "45e2a0c9-a861-419b-89bd-5284f5553e5b",
         code: "1",
         title: "Record 1",
-        parentId: null,
+        parentId: "",
       },
       {
         id: "bb376e30-2082-4c69-b0c0-9328668c19de",
@@ -291,19 +291,19 @@ describe("suggestNextCode", () => {
         id: "45e2a0c9-a861-419b-89bd-5284f5553e5b",
         code: "1",
         title: "Record 1",
-        parentId: null,
+        parentId: "",
       },
       {
         id: "3046ab0f-c427-4703-91eb-fed29ed38580",
         code: "2",
         title: "Record 2",
-        parentId: null,
+        parentId: "",
       },
       {
         id: "0d0b27c6-bda2-425c-8d69-75f5d2e127a9",
         code: "999",
         title: "Record 999",
-        parentId: null,
+        parentId: "",
       },
       {
         id: "bb376e30-2082-4c69-b0c0-9328668c19de",

@@ -11,6 +11,7 @@ export default function Select({
   errorMessage,
   ...pickerSelectProps
 }: SelectProps) {
+  const { disabled } = pickerSelectProps;
   return (
     <InputBase label={label} errorMessage={errorMessage}>
       <PickerSelect
@@ -39,7 +40,9 @@ export default function Select({
 
           viewContainer: {
             borderRadius: theme.RADII.S,
-            backgroundColor: theme.COLORS.WHITE,
+            backgroundColor: disabled
+              ? theme.COLORS.GRAY_100
+              : theme.COLORS.WHITE,
             paddingLeft: theme.SPACE[12],
           },
           placeholder: {
@@ -52,7 +55,7 @@ export default function Select({
         }}
         placeholder={{
           label: "Selecione",
-          value: null,
+          value: "",
           color: theme.COLORS.GRAY_200,
         }}
         {...pickerSelectProps}

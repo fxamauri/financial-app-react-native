@@ -24,8 +24,6 @@ export default function useFinancial() {
     [recordsStorage]
   );
 
-  console.log({ recordsStorage });
-
   const addRecord = useCallback(
     (record: FinancialRecord) => {
       const validate = financialRecordsValidations(recordsStorage);

@@ -8,6 +8,6 @@ export type FinancialRecord = {
   code: string;
   title: string;
   type: FinancialType;
-  parentId: string | null;
+  parentId: string;
   acceptRelease: boolean;
 };

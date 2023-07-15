@@ -29,17 +29,22 @@ export default function NewFinancialRecordScreen() {
       title: "",
       type: FinancialType.INCOME,
       parentId: "",
-      acceptRelease: true,
+      acceptRelease: false,
     },
   });
 
   const parentId = watch("parentId");
+  const inputTypeDisabled = parentId !== "";
   useEffect(() => {
     if (parentId) {
       setValue("code", suggestNextCode(records, parentId));
+
+      const parentItem = records.find((record) => record.id === parentId);
+      if (parentItem) {
+        setValue("type", parentItem.type);
+      }
       return;
     }
-    setValue("code", "");
   }, [parentId, records, setValue]);
 
   return (
@@ -114,6 +119,7 @@ export default function NewFinancialRecordScreen() {
           render={({ field: { value, onChange }, fieldState: { error } }) => (
             <Select
               label="Tipo"
+              disabled={inputTypeDisabled}
               placeholder={{}}
               items={selectTypeOptions}
               onValueChange={onChange}
