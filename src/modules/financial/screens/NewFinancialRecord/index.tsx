@@ -45,6 +45,7 @@ export default function NewFinancialRecordScreen() {
       }
       return;
     }
+    setValue("code", "");
   }, [parentId, records, setValue]);
 
   return (
@@ -82,7 +83,6 @@ export default function NewFinancialRecordScreen() {
             <Input
               label="Código"
               placeholder="Código da conta"
-              keyboardType="numeric"
               value={value}
               onBlur={onBlur}
               onChangeText={onChange}
