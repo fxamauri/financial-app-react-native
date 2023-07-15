@@ -47,5 +47,5 @@ export const suggestNextCode = (
   }
 
   const parent = records.find((record) => record.id === parentId);
-  return `${parent?.code}.1`;
+  return parent?.code ? `${parent.code}.1` : "";
 };
