@@ -1,10 +1,4 @@
-import {
-  Container,
-  BackButton,
-  Title,
-  Content,
-  ContentBackButton,
-} from "./styles";
+import { Container, BackButton, Title, Content } from "./styles";
 import { HeaderProps } from "./types";
 
 export default function Header({
