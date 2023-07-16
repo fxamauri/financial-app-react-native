@@ -33,7 +33,9 @@ export default function Select({
             fontFamily: theme.FONT_FAMILY.TEXT.REGULAR,
             height: 44,
             color: theme.COLORS.GRAY_800,
-            backgroundColor: theme.COLORS.WHITE,
+            backgroundColor: disabled
+              ? theme.COLORS.GRAY_100
+              : theme.COLORS.WHITE,
             borderRadius: theme.RADII.S,
             paddingLeft: theme.SPACE[12],
           },
